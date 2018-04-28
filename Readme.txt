@@ -1,11 +1,11 @@
 About: 
 Document classification REST Service takes in request to classify a single document and returns the predicted class and confidence.
-The UI also has a feature to test the classifier against supplied test data in csv format. Returns summary of classification and also detailed statistics.
+The UI also has a feature to test the classifier against supplied test data in csv format(in same format as the provided train data). Returns summary of classification and also detailed statistics.
 
 
 How to deploy:
-1) Download the documentclassification-api-0.0.1.jar
-2) Place the input csv data file in the same folder
+1) Download the documentclassification-api-0.0.1.jar (in the target folder)
+2) Place the train csv data file in the same folder
 3) run command: java -jar documentclassification-api-0.0.1.jar <train-filename.csv>
 
 
@@ -52,7 +52,7 @@ All service responses depend upon the request content-header type.
 UI Specs:
 Options available:
 1) Use input field to classify a single document(enter space separated words). Returns predicted class and confidence.
-2) Test model against test data from csv. Returns summary of classification and also detailed statistics.
+2) Test model against test data from csv(same format as given training data). Returns summary of classification and also detailed statistics.
 
 
 Classifier Specs:
