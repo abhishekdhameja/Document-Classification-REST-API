@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Document classification result</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+<!--Favicon-->
+<link rel="shortcut icon" th:href="@{/images/hw.ico}" title="Favicon" />
+
+<!-- Main CSS Files -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+<!-- Namari Color CSS -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/namari-color.css}">
+
+<!--Icon Fonts - Font Awesome Icons-->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/font-awesome.min.css}">
+
+<!-- Animate CSS-->
+<link rel="stylesheet" type="text/css" th:href="@{/css/animate.css}">
+
+<!--Google Webfonts-->
+<link rel='stylesheet' type='text/css' th:href="@{/css/google-font.css}">
+
+<!--For Form-->
+<link rel="stylesheet" type='text/css' th:href="@{/css/styling.css}">
+</head>
+<body>
+	<h1>Document Classification Result</h1>
+	<div class="container">
+		<div>
+			<table>
+				<tr>
+				<td>Prediction :</td>
+				<td th:text="${document.doc_class}"></td>
+				</tr>
+				<tr>
+				<td>Confidence :</td>
+				<td th:text="${document.confidence}"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<br>
+	<a href="/documentclassification"><u>Classify Another Document</u></a>
+</body>
+</html>

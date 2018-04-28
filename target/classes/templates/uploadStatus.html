@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Test Evaluation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+<!--Favicon-->
+<link rel="shortcut icon" th:href="@{/images/hw.ico}" title="Favicon" />
+
+<!-- Main CSS Files -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+<!-- Namari Color CSS -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/namari-color.css}">
+
+<!--Icon Fonts - Font Awesome Icons-->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/font-awesome.min.css}">
+
+<!-- Animate CSS-->
+<link rel="stylesheet" type="text/css" th:href="@{/css/animate.css}">
+
+<!--Google Webfonts-->
+<link rel='stylesheet' type='text/css' th:href="@{/css/google-font.css}">
+
+<!--For Form-->
+<link rel="stylesheet" type='text/css' th:href="@{/css/styling.css}">
+</head>
+<body>
+
+	<h1 th:if="${correct}">Test file Evaluation</h1>
+
+	<div th:if="${correct}" class="container">
+		<div>
+			<table>
+				<tr>
+					<td>Correctly Classified Instances: &nbsp;&nbsp;</td>
+					<td th:text="${correct}">&nbsp;&nbsp;</td>
+					<td th:text="${correct_percentage}"></td>
+				</tr>
+				<tr>
+					<td>Incorrectly Classified Instances: &nbsp;&nbsp;</td>
+					<td th:text="${incorrect}">&nbsp;&nbsp;</td>
+					<td th:text="${incorrect_percentage}">
+				</tr>
+				<tr>
+					<td>Kappa statistic: &nbsp;&nbsp;</td>
+					<td th:text="${kappa}"></td>
+				</tr>
+				<tr>
+					<td>Mean absolute error: &nbsp;&nbsp;</td>
+					<td th:text="${mae}"></td>
+				</tr>
+				<tr>
+					<td>Root mean squared error: &nbsp;&nbsp;</td>
+					<td th:text="${rmse}"></td>
+				</tr>
+				<tr>
+					<td>Relative absolute error: &nbsp;&nbsp;</td>
+					<td th:text="${rae}"></td>
+				</tr>
+				<tr>
+					<td>Root relative squared error: &nbsp;&nbsp;</td>
+					<td th:text="${rrse}"></td>
+				</tr>
+				<tr>
+					<td>Total Number of Instances: &nbsp;&nbsp;</td>
+					<td th:text="${total}"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<h1 th:if="${confusion}">Confusion Matrix</h1>
+
+	<div th:if="${confusion}" class="container">
+		<div>
+			<table>
+
+			</table>
+		</div>
+	</div>
+
+	<h1 th:if="${error}">Error!</h1>
+
+	<div th:if="${error}" class="container">
+		<p th:text="${error}" />
+	</div>
+
+	<div th:if="${correct}" class="container">
+		<a href="result/results.txt"><u>Download detailed results</u></a>
+		<br> <a href="/documentclassification"><u>Submit Another
+				Test File</u></a>
+	</div>
+</body>
+</html>

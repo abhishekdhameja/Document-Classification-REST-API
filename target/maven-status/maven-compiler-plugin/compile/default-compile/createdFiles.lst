@@ -1,0 +1,10 @@
+com\amd\documentclassification\controller\DocumentClassificationService.class
+com\amd\documentclassification\Document\InputDocument.class
+com\amd\documentclassification\controller\CreateArffFile.class
+com\amd\documentclassification\controller\FileUploadController.class
+com\amd\documentclassification\controller\GlobalExceptionHandler.class
+com\amd\documentclassification\Document\Document.class
+com\amd\documentclassification\controller\ResultDownloadController.class
+com\amd\documentclassification\controller\DocumentClassificationController.class
+com\amd\documentclassification\DocumentClassificationAPI.class
+com\amd\documentclassification\controller\TestFileClassifyService.class

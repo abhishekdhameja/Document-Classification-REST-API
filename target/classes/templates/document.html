@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!--Page Title-->
+<title>Document Classification</title>
+
+<!--Meta Keywords and Description-->
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+<!--Favicon-->
+<link rel="shortcut icon" th:href="@{/images/hw.ico}" title="Favicon" />
+
+<!-- Main CSS Files -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+<!-- Namari Color CSS -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/namari-color.css}">
+
+<!--Icon Fonts - Font Awesome Icons-->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/font-awesome.min.css}">
+
+<!-- Animate CSS-->
+<link rel="stylesheet" type="text/css" th:href="@{/css/animate.css}">
+
+<!--Google Webfonts-->
+<link rel='stylesheet' type='text/css' th:href="@{/css/google-font.css}">
+
+<!--For Form-->
+<link rel="stylesheet" type='text/css' th:href="@{/css/styling.css}">
+</head>
+<body>
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div id="status" class="la-ball-triangle-path">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<!--End of Preloader-->
+
+	<div class="page-border" data-wow-duration="0.7s" data-wow-delay="0.2s">
+		<div class="top-border wow fadeInDown animated"
+			style="visibility: visible; animation-name: fadeInDown;"></div>
+		<div class="right-border wow fadeInRight animated"
+			style="visibility: visible; animation-name: fadeInRight;"></div>
+		<div class="bottom-border wow fadeInUp animated"
+			style="visibility: visible; animation-name: fadeInUp;"></div>
+		<div class="left-border wow fadeInLeft animated"
+			style="visibility: visible; animation-name: fadeInLeft;"></div>
+	</div>
+
+	<div id="wrapper">
+
+		<header id="banner" class="scrollto clearfix" data-enllax-ratio=".5">
+			<div id="header" class="nav-collapse">
+				<div class="row clearfix">
+					<div class="col-1">
+
+						<!--Logo-->
+						<div id="logo">
+
+							<!--Logo that is shown on the banner-->
+							<img th:src="@{/images/logo.jpeg}" id="banner-logo"
+								alt="Landing Page" />
+							<!--End of Banner Logo-->
+
+							<!--The Logo that is shown on the sticky Navigation Bar-->
+							<img th:src="@{/images/logo.jpeg}" id="navigation-logo"
+								alt="Landing Page" />
+							<!--End of Navigation Logo-->
+
+						</div>
+						<!--End of Logo-->
+
+						<aside>
+
+							<!--Social Icons in Header-->
+							<ul class="social-icons">
+								<li><a target="_blank" title="LinkedIn"
+									href="https://www.linkedin.com/in/abhishekdhameja/"> <i
+										class="fa fa-linkedin fa-1x"></i><span>LinkedIn</span>
+								</a></li>
+								<li><a target="_blank" title="Facebook"
+									href="https://www.facebook.com/abhishekdhameja"> <i
+										class="fa fa-facebook fa-1x"></i><span>Facebook</span>
+								</a></li>
+								<li><a target="_blank" title="Twitter"
+									href="https://twitter.com/abhishekdhameja"> <i
+										class="fa fa-twitter fa-1x"></i><span>Twitter</span>
+								</a></li>
+
+							</ul>
+							<!--End of Social Icons in Header-->
+
+						</aside>
+
+						<!--Main Navigation-->
+						<nav id="nav-main">
+							<ul>
+								<li><a href="#banner">Home</a></li>
+								<li><a href="#about">Document Classification</a></li>
+
+							</ul>
+						</nav>
+						<!--End of Main Navigation-->
+
+						<div id="nav-trigger">
+							<span></span>
+						</div>
+						<nav id="nav-mobile"></nav>
+
+					</div>
+				</div>
+			</div>
+			<!--End of Header-->
+
+			<!--Banner Content-->
+			<div id="banner-content" class="row clearfix">
+
+				<div class="col-38">
+
+					<div class="section-heading">
+						<h1>
+							Document<br> Classification
+						</h1>
+						<h2>
+							- by Abhishek Dhameja<br> <br> Presenting the Document Classification REST API  - built using SpringBoot MVC to implement the services and Weka Java library to build the C4.5 Classifier. 
+						</h2>
+					</div>
+
+					<!--Call to Action-->
+					<a href="#about" class="button">LET'S GET STARTED</a>
+					<!--End Call to Action-->
+
+				</div>
+
+			</div>
+			<!--End of Row-->
+		</header>
+
+		<!--Main Content Area-->
+		<main id="content"> <!--Introduction-->
+		<section id="about" class="introduction scrollto">
+
+			<form th:object="${document}" method="post" align="center"
+				id="submitForm" action="/upload" enctype="multipart/form-data">
+
+				<h4 align="center">Document Classification</h4>
+				<div>
+					<h2>Enter your Input/Input File</h2>
+					<div>
+						<input type="radio" name="choice-animals"
+							style="vertical-align: middle" id="choice-animals-dogs"
+							onchange="setRequired()" required> <label
+							for="choice-animals-dogs">Enter words in your document: </label>
+
+						<div class="reveal-if-active">
+							<input type="text" id="which-dog" name="which-dog"
+								class="require-if-active" placeholder="Space seperated words in your document"
+								data-require-pair="#choice-animals-dogs" th:field="*{words}">
+						</div>
+					</div>
+
+					<div>
+						<input type="radio" name="choice-animals"
+							style="vertical-align: middle" id="choice-animals-cats"
+							onchange="setRequired()"> <label
+							for="choice-animals-cats">Select test file to be classified:</label>
+
+						<div class="reveal-if-active">
+							<!-- <label for="which-cat">Why? Cats are weird. Respond.</label>-->
+							Select a file (max 10MB): <input type="file" name="file" id="fileInput"
+								accept=".csv">
+							<!--<input type="text" id="which-cat" name="which-cat" class="require-if-active" data-require-pair="#choice-animals-cats">-->
+						</div>
+					</div>
+				</div>
+
+
+
+				<div>
+					<input type="submit" value="Classify">
+				</div>
+
+			</form>
+
+
+
+
+			<script th:src="@{/js/index.js}"></script>
+
+			<div align="center"></div>
+
+
+		</section>
+		<!--End of Introduction--> <!--Content Section--> <!--End of Content Section-->
+
+		<!--Testimonials--> <!--End of Testimonials--> <!--Clients--> <!--End of Clients-->
+
+		<!--Pricing Tables--> <!--End of Pricing Tables--> </main>
+		<!--End Main Content Area-->
+
+
+		<!--Footer-->
+		<footer id="landing-footer" class="clearfix">
+			<div class="row clearfix">
+
+				<p id="copyright" class="col-2">Made by Abhishek Dhameja</p>
+
+				<!--Social Icons in Footer-->
+				<ul class="col-2 social-icons">
+					<li><a target="_blank" title="LinkedIn"
+						href="https://www.linkedin.com/in/abhishekdhameja/"> <i
+							class="fa fa-linkedin fa-1x"></i><span>LinkedIn</span>
+					</a></li>
+					<li><a target="_blank" title="Facebook"
+						href="https://www.facebook.com/abhishekdhameja"> <i
+							class="fa fa-facebook fa-1x"></i><span>Facebook</span>
+					</a></li>
+					<li><a target="_blank" title="Twitter"
+						href="https://twitter.com/abhishekdhameja"> <i
+							class="fa fa-twitter fa-1x"></i><span>Twitter</span>
+					</a></li>
+				</ul>
+				<!--End of Social Icons in Footer-->
+			</div>
+		</footer>
+		<!--End of Footer-->
+
+	</div>
+
+	<!-- Include JavaScript resources -->
+	<script type="text/javascript" th:src="@{/js/jquery.1.8.3.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/wow.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/featherlight.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/js/featherlight.gallery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/jquery.enllax.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/jquery.scrollUp.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/jquery.easing.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/js/jquery.stickyNavbar.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/jquery.waypoints.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/images-loaded.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/lightbox.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/site.js}"></script>
+	<script type="text/javascript">
+		function setRequired() {
+			var chkInput = document.getElementById("choice-animals-dogs");
+			if (chkInput.checked) {
+				document.getElementById("which-dog").setAttribute("value", "");
+				document.getElementById("which-dog").setAttribute("required",
+						"required");
+				document.getElementById("fileInput")
+						.removeAttribute("required");
+				document.getElementById("submitForm").setAttribute("action",
+						"/documentclassification");
+				document.getElementById("submitForm")
+						.removeAttribute("enctype");
+				document.getElementById("submitForm").setAttribute("th:object",
+						"${document}");
+
+			} else {
+				document.getElementById("which-dog")
+						.removeAttribute("required");
+				document.getElementById("fileInput").setAttribute("required",
+						"required");
+				document.getElementById("submitForm").setAttribute("th:action",
+						"@{/upload}");
+				document.getElementById("which-dog").setAttribute("value",
+						"fileAttached");
+				document.getElementById("submitForm").setAttribute("enctype",
+						"multipart/form-data");
+				document.getElementById("submitForm").removeAttribute(
+						"th:object");
+			}
+		}
+	</script>
+
+</body>
+</html>
