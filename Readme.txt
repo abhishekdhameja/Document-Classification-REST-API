@@ -1,4 +1,4 @@
-About: 
+#About: 
 Document classification REST Service takes in request to classify a single document and returns the predicted class and confidence.
 The UI also has a feature to test the classifier against supplied test data in csv format(in same format as the provided train data). Returns summary of classification and also detailed statistics.
 
