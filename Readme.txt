@@ -1,20 +1,20 @@
-#About: 
+## About: 
 Document classification REST Service takes in request to classify a single document and returns the predicted class and confidence.
 The UI also has a feature to test the classifier against supplied test data in csv format(in same format as the provided train data). Returns summary of classification and also detailed statistics.
 
 
-How to deploy:
+## How to deploy:
 1) Download the documentclassification-api-0.0.1.jar (in the target folder)
 2) Place the train csv data file in the same folder
 3) run command: java -jar documentclassification-api-0.0.1.jar <train-filename.csv>
 
 
-Rest Services Specs:
+## Rest Services Specs:
 
 Service endpoints: 1) /                               (loads user Interface for hitting service/testing classifier)
                    2) /documentclassification         (this endpoint handles all requests)
                    
-Supported methods = GET/POST
+## Supported methods = GET/POST
 
 1) Get : /documentclassification?words=word1+word2+word3+...        (Get request to this endpoint without parameter opens the UI)
 2) POST: /documentclassification   (Requires request body in either json,xml,text and gives appropriate output)
@@ -49,13 +49,13 @@ All service responses depend upon the request content-header type.
 *** Max Http Request Header Size= 20KB   (to accomodate larger documents in the GET request header parameter)
 
 
-UI Specs:
-Options available:
+## UI Specs:
+### Options available:
 1) Use input field to classify a single document(enter space separated words). Returns predicted class and confidence.
 2) Test model against test data from csv(same format as given training data). Returns summary of classification and also detailed statistics.
 
 
-Classifier Specs:
+## Classifier Specs:
 1) Classifier: C4.5 Decision tree using J48(Weka)
 2) Features: Top 150 words with maximum TF-IDF scores and their counts.
 
